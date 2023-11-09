@@ -6,7 +6,7 @@ int main() {
     char a1, b1, c1;
     int a2, b2, c2;
 
-    int count;
+    int count = 0;
 
     cin >> a1 >> a2;
     cin >> b1 >> b2;
@@ -17,11 +17,13 @@ int main() {
             ++count;
         }
     }
+
     if(b1 == 'Y') {
         if(b2 >= 37) {
             ++count;
         }
     }
+
     if(c1 == 'Y') {
         if(c2 >= 37) {
             ++count;
