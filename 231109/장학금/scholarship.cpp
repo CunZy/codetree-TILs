@@ -4,6 +4,7 @@ using namespace std;
 int main() {
     // 여기에 코드를 작성해주세요.
     int mid, fin;
+    cin >> mid >> fin;
 
     if(mid < 90) {
         cout << 0;
