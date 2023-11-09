@@ -9,7 +9,7 @@ int main() {
         if(a >= c) {
             cout << a;
         }
-        else {}
+        else {
             cout << c;
         }
     }
