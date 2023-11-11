@@ -11,13 +11,9 @@ int main() {
             cout << 0 << " ";
         }
         else {
-            int t = i / 100;
-            int r = (t % 100) / 10;
-            int e = (t % 10); 
-            if(t == 3 || t == 6 || t == 9) {
-                cout << 0 << " ";
-            }
-            else if(r == 3 || r == 6 || r == 9) {
+            int r = i / 10;
+            int e = (i % 10); 
+            if(r == 3 || r == 6 || r == 9) {
                 cout << 0 << " ";
             }
             else if(e == 3 || e == 6 || e == 9) {
