@@ -12,6 +12,9 @@ int main() {
         s += t;
     }
 
-    cout << s << " " << (double)s / n;
+    cout << s << " ";
+    cout << fixed;
+    cout.precision(1);
+    cout << (double)s / n;
     return 0;
 }
