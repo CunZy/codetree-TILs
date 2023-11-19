@@ -12,6 +12,9 @@ int main() {
         for(int j = 0; j <= i; ++j) {
             cout << (char)x;
             ++x;
+            if(x >= 91) {
+                x = 65;
+            }
         }
         cout << endl;
     }
