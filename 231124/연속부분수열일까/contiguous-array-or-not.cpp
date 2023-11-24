@@ -31,6 +31,10 @@ int main() {
                 equals = 0;
                 break;
             }
+
+            if(equals == 1) {
+                break;
+            }
         }
     }
 
