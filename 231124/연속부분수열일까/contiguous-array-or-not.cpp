@@ -26,6 +26,9 @@ int main() {
                         equals = 0;
                         break;
                     }
+                    else {
+                        equals = 1;
+                    }
                 }
             }
             else {
