@@ -13,7 +13,7 @@ int main() {
     }
 
     int min = INT_MAX;
-    int c;
+    int c = 1;
 
     for(int i = 0; i < n; ++i) {
         if(min > a[i]) {
