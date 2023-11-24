@@ -25,11 +25,11 @@ int main() {
             int r = 0;
             for(int j = 0; j < n; ++j) {
                 if(arr[j] == a) {
-                    r = j;
+                    r = j + 1;
                     break;
                 }
             }
-            cout << r + 1 << endl;
+            cout << r << endl;
         }
         else if(t == 3) {
             cin >> a >> b;
