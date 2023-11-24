@@ -16,6 +16,7 @@ int main() {
     }
 
     int equals = 1;
+    int c = 0;
 
     for(int i = 0; i < n1; ++i) {
         if(a[i] == b[0]) {
@@ -36,9 +37,10 @@ int main() {
                 break;
             }
         }
+        ++c;
     }
 
-    if(equals == 1) {
+    if(equals == 1 && c < n1) {
         cout << "Yes";
     }
     else {
