@@ -14,7 +14,7 @@ int main() {
 
     bool g = true;
 
-    for(int i = n; i >= 0; --i) {
+    for(int i = 1000; i > 0; --i) {
         if(b[i] == 0) {
             continue;
         }
