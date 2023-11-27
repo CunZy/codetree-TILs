@@ -10,15 +10,30 @@ int main() {
     int cnt = 1;
 
     for(int j = n - 1; j >= 0; --j) {
-        if(j % 2 == 1) {
-            for(int i = n - 1; i >= 0; --i) {
-                a[i][j] = cnt++;
+        if(n % 2 == 0) {
+            if(j % 2 == 1) {
+                for(int i = n - 1; i >= 0; --i) {
+                    a[i][j] = cnt++;
+                }
+            }
+            else {
+                for(int i = 0; i < n; ++i) {
+                    a[i][j] = cnt++;
+                }
             }
         }
         else {
-            for(int i = 0; i < n; ++i) {
-                a[i][j] = cnt++;
+            if(j % 2 == 0) {
+                for(int i = n - 1; i >= 0; --i) {
+                    a[i][j] = cnt++;
+                }
             }
+            else {
+                for(int i = 0; i < n; ++i) {
+                    a[i][j] = cnt++;
+                }
+            }
+        }
         }
     }
 
