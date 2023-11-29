@@ -10,8 +10,11 @@ int main() {
     if(a.length() > b.length()) {
         cout << a << " " << a.length();
     }
-    else {
+    else if(a.length() < b.length()) {
         cout << b << " " << b.length();
+    }
+    else {
+        cout << "same";
     }
     return 0;
 }
