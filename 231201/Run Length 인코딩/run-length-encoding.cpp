@@ -27,7 +27,16 @@ int main() {
             ++c;
         }
         
-        if(b != a[i] || i == a.length() - 1) {
+        if(i == a.length() - 1) {
+            if(b == a[i]) {
+                cout << b << c;
+            }
+            else {
+                cout << b << c;
+                cout << a[i] << 1;
+            }
+        }
+        else if(b != a[i]) {
             cout << b << c;
             b = a[i];
             c = 1;
