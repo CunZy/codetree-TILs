@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    // 여기에 코드를 작성해주세요.
+    string a;
+
+    cin >> a;
+
+    char b = a[0];
+    int c = 1;
+
+    for(int i = 0; i < a.length(); ++i) {
+        if(b != a[i]) {
+            ++c;
+            b = a[i];
+        }
+    }
+
+    cout << c * 2 << endl;
+
+    b = a[0];
+    c = 0;
+    for(int i = 0; i < a.length(); ++i) {
+        if(b == a[i]) {
+            ++c;
+        }
+        
+        if(b != a[i] || i == a.length() - 1) {
+            cout << b << c;
+            b = a[i];
+            c = 1;
+        }
+    }
+    return 0;
+}
