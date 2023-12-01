@@ -16,14 +16,7 @@ int main() {
     b = a[0];
     c = 0;
     for(int i = 0; i < a.length(); ++i) {
-        if(b != a[i]) {
-            d[t] = b;
-            e[t] = c;
-            ++t;
-            c = 1;
-            b = a[i];
-        }
-        else if(i == a.length() - 1) {
+        if(i == a.length() - 1) {
             if(b == a[i]) {
                 ++c;
                 d[t] = b;
@@ -39,6 +32,13 @@ int main() {
                 e[t] = c;
                 ++t;
             }
+        }
+        else if(b != a[i]) {
+            d[t] = b;
+            e[t] = c;
+            ++t;
+            c = 1;
+            b = a[i];
         }
         else if(b == a[i]) {
             ++c;
