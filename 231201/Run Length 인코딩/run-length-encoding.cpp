@@ -48,10 +48,10 @@ int main() {
     int r = 0;
     for(int i = 0; i < t; ++i) {
         ++r;
+        int q = e[i];
         while(true) {
-            int q = e[i];
             if(q / 10 != 0) {
-                q = e[i] / 10;
+                q = q / 10;
                 ++r;
             }
             else {
