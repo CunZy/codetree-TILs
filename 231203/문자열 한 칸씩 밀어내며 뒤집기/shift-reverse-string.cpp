@@ -31,7 +31,7 @@ int main() {
                 a[j] = e[e.length() - j - 1];
             }
 
-            cout << a;
+            cout << a << endl;
         }
     }
     return 0;
