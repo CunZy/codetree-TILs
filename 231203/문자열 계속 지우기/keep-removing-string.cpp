@@ -11,21 +11,26 @@ int main() {
     while(true) {
         bool t = false;
         if(a.length() != 0) {
-            for(int i = 0; i < a.length() - b.length() + 1; ++i) {
-                bool w = true;
-                for(int j = 0; j < b.length(); ++j) {
-                    if(a[i + j] != b[j]) {
-                        if(i == a.length() - b.length()) {
-                            t = true;
+            if(a.length() >= b.length()) {
+                for(int i = 0; i < a.length() - b.length() + 1; ++i) {
+                    bool w = true;
+                    for(int j = 0; j < b.length(); ++j) {
+                        if(a[i + j] != b[j]) {
+                            if(i == a.length() - b.length()) {
+                                t = true;
+                            }
+                            w = false;
+                            break;
                         }
-                        w = false;
+                    }
+                    if(w) {
+                        a.erase(i, b.length());
                         break;
                     }
                 }
-                if(w) {
-                    a.erase(i, b.length());
-                    break;
-                }
+            }
+            else {
+                break;
             }
         }
         else {
