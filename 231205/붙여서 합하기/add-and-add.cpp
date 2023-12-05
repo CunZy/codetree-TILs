@@ -8,7 +8,9 @@ int main() {
     cin >> a >> b;
 
     string c = a + b;
-    string d = b + a;
+    string d = "";
+    d.append(b);
+    d.append(a);
 
     cout << stoi(c) + stoi(d) << endl;
     return 0;
