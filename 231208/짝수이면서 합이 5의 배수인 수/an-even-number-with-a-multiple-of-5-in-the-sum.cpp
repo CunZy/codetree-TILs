@@ -5,7 +5,7 @@ bool IsTrue(int n) {
     int a = n / 10;
     int b = n % 10;
 
-    if((a + b) % 5 == 0) {
+    if((a + b) % 5 == 0 && n % 2 == 0) {
         return true;
     }
     else {
