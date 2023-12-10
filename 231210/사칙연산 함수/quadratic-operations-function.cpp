@@ -29,7 +29,7 @@ int main() {
     else if(c == '*') cout << a << " " << c << " " << b << " = " << Multi(a, b);
     else if(c == '/') cout << a << " " << c << " " << b << " = " << Div(a, b);
     else {
-        cout << "false";
+        cout << "False";
     }
     return 0;
 }
