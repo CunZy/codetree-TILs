@@ -11,10 +11,13 @@ bool IsMonth(int a) {
 
 bool IsDay(int a, int b) {
     if(IsMonth(a)) {
-        if(a == 2 && b <= 28) {
-            return true;
+        if(a == 2) {
+            if(b <= 28) {
+                return true;
+            }
+            return false;
         }
-        if(a < 8) {
+        else if(a < 8) {
             if(a % 2 == 1) {
                 if(b <= 31) {
                     return true;
