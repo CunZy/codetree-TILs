@@ -12,7 +12,7 @@ bool IsTrue(string &a) {
         }
     }
 
-    if(c >= 2) {
+    if(w >= 2) {
         return true;
     }
     return false;
