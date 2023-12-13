@@ -7,9 +7,8 @@ void Grow(int n) {
     if(n == 0) {
         return;
     }
-    cout << cnt + 1 << " ";
-    ++cnt;
     Grow(n - 1);
+    cout << n << " ";
 }
 
 void Dep(int n) {
@@ -17,8 +16,7 @@ void Dep(int n) {
         return;
     }
 
-    cout << cnt << " ";
-    --cnt;
+    cout << n << " ";
     Dep(n - 1);
 }
 
