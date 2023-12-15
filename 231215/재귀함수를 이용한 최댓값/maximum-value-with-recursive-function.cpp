@@ -8,11 +8,13 @@ int Max(int n) {
         return a[0];
     }
 
-    if(a[n] > Max(n - 1)) {
-        return a[n];
+    int before = Max(n - 1);
+
+    if(a[n] < before) {
+        return before;
     }
     else {
-        return Max(n - 1);
+        return a[n];
     }
 }
 
