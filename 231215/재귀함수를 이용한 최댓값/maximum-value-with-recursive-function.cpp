@@ -26,6 +26,6 @@ int main() {
         cin >> a[i];
     }
 
-    cout << Max(n);
+    cout << Max(n - 1);
     return 0;
 }
