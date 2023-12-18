@@ -12,10 +12,9 @@ int main() {
         cin >> a[i];
     }
 
-    sort(a, a + n);
-
     for(int i = 0; i < n; ++i) {
         if((i + 1) % 2 == 1) {
+            sort(a, a + i + 1);
             cout << a[i / 2] << " ";
         }
     }
