@@ -17,7 +17,7 @@ bool Sort(Student &a, Student &b) {
     if(a.height != b.height) {
         return a.height < b.height;
     }
-    return a.weight < b.height;
+    return a.weight > b.weight;
 }
 
 int main() {
