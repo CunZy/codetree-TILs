@@ -36,7 +36,12 @@ int main() {
         }
     }
 
-    cout << ((time - start) / 7) + 1 << endl;
-
+    if(time >= start) {
+        cout << (time - start) / 7 + 1 << endl;
+    }
+    else {
+        cout << 0 << endl;
+    }
+    
     return 0;
 }
