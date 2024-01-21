@@ -38,11 +38,11 @@ int main() {
                 }
             }
 
-            t = r;
+            t = r - 1;
         }
         else if(y == 'L') {
             r = t - x;
-            for(int j = r; j < t; ++j) {
+            for(int j = t; j > r; --j) {
                 c[j]++;
                 if(c[j] >= 2) {
                     if(b[j] >= 2) {
@@ -56,7 +56,7 @@ int main() {
                     a[j] = 2;
                 }
             }
-            t = r;
+            t = r + 1;
         }
     }
 
