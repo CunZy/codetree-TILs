@@ -25,7 +25,7 @@ int main() {
         else if(y == 'L') {
             r = t - x;
 
-            for(int j = t; j > r; --j) {
+            for(int j = r; j < t; ++j) {
                 a[j]++;
             }
         }
@@ -36,7 +36,7 @@ int main() {
 
     for(int i = 0; i < 2001; ++i) {
         if(a[i] >= 2) {
-            cnt++;
+            cnt++;           
         } 
     }
 
