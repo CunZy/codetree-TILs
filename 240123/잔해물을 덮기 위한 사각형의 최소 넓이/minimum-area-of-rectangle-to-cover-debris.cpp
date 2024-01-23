@@ -47,17 +47,49 @@ int main() {
         }
     }
 
+//  cout << x4 - 1000 << " " << y4 - 1000 << " " << x3 - 1000 << " " << y3 - 1000 << endl;
     int cnt = 0;
 
-    if((x1[0] == x4 && x2[0] == x3 + 1) || (y1[0] == y4 && y2[0] == y3 + 1)) {
-        for(int i = 0; i < 2001; ++i) {
-            for(int j = 0; j < 2001; ++j) {
-                if(a[i][j] == 1) {
-                    ++cnt;
+    if((x1[0] == x4 && x2[0] == x3 + 1)) {
+        if(y1[0] == y4 || y2[0] == y3 + 1) {
+            for(int i = 0; i < 2001; ++i) {
+                for(int j = 0; j < 2001; ++j) {
+                    if(a[i][j] == 1) {
+                        ++cnt;
+                    }
                 }
-            }
-        } 
+            } 
+        }
+        else {
+            for(int i = 0; i < 2001; ++i) {
+                for(int j = 0; j < 2001; ++j) {
+                    if(a[i][j] == 1 || a[i][j] == 3) {
+                        ++cnt;
+                    }
+                }
+            } 
+        }
     }   
+    else if((y1[0] == y4 && y2[0] == y3 + 1)) {
+        if(x1[0] == x4 || x2[0] == x3 + 1) {
+            for(int i = 0; i < 2001; ++i) {
+                for(int j = 0; j < 2001; ++j) {
+                    if(a[i][j] == 1) {
+                        ++cnt;
+                    }
+                }
+            } 
+        }
+        else {
+            for(int i = 0; i < 2001; ++i) {
+                for(int j = 0; j < 2001; ++j) {
+                    if(a[i][j] == 1 || a[i][j] == 3) {
+                        ++cnt;
+                    }
+                }
+            } 
+        }
+    }
     else {
         for(int i = 0; i < 2001; ++i) {
             for(int j = 0; j < 2001; ++j) {
