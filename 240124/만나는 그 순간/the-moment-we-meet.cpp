@@ -50,8 +50,16 @@ int main() {
         }
     }
 
+    int q = 0;
 
-    for(int i = 1; i < 1000000; ++i) {
+    if(n > m) { 
+        q = n;
+    }
+    else {
+        q = m;
+    }
+    for(int i = 1; i < q; ++i) {
+        // cout << a[i] << " " << b[i] << endl;
         if(a[i] == b[i]) {
             cout << i << endl;
             return 0;
