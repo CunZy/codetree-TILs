@@ -16,15 +16,22 @@ int main() {
     }
 
     int max = 0;
-    int q = 0;
+    int q = 1;
     for(int i = 0; i < n; ++i) {
-        ++q;
         if(i == 0 || a[i] != a[i - 1]) {
             if(q > max) {
                 max = q;
             }
             q = 0;
         }
+        else if(i == n - 1) {
+            ++q;
+            if(q > max) {
+                max = q;
+            }
+            q = 0;
+        }
+        ++q;
     }
 
     cout << max << endl;
