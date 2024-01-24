@@ -52,11 +52,11 @@ int main() {
 
     int q = 0;
 
-    if(n > m) { 
-        q = n;
+    if(timeA > timeB) { 
+        q = timeA;
     }
     else {
-        q = m;
+        q = timeB;
     }
     for(int i = 1; i < q; ++i) {
         // cout << a[i] << " " << b[i] << endl;
