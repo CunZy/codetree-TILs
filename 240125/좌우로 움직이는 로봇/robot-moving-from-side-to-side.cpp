@@ -6,8 +6,8 @@ int main() {
     int n, m;
     cin >> n >> m;
 
-    int a[1000000] = {};
-    int b[1000000] = {};
+    int a[5000000] = {};
+    int b[5000000] = {};
 
     int wayA = 0;
     int wayB = 0;
@@ -38,7 +38,7 @@ int main() {
         }
     }
 
-    for(int i = timeA; i < 1000000; ++i) {
+    for(int i = timeA; i < 5000000; ++i) {
         a[i] = a[timeA - 1];
     }
 
@@ -64,8 +64,8 @@ int main() {
     }
 
     
-    for(int i = timeB; i < 1000000; ++i) {
-        b[i] = b[timeA - 1];
+    for(int i = timeB; i < 5000000; ++i) {
+        b[i] = b[timeB - 1];
     }
 
     int cnt = 0;
