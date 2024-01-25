@@ -62,6 +62,11 @@ int main() {
         }
     }
 
-    cout << cnt - 1;
+    if(cnt != 0) {
+        cout << cnt - 1;
+    }
+    else {
+        cout << 0 << endl;
+    }
     return 0;
 }
