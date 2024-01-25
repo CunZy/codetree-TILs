@@ -17,6 +17,7 @@ int main() {
         a[num - 1]++;
         if(a[num - 1] >= k) {
             ans = num;
+            break;
         }
     }
 
