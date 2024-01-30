@@ -5,7 +5,7 @@ int n;
 int t;
 
 bool IsIn(int x, int y) {
-    return x > 0 && x < n && y > 0 && y < n;
+    return x > 0 && x <= n && y > 0 && y <= n;
 }
 
 int GetDir(char d) {
