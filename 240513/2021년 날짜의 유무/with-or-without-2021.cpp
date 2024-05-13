@@ -3,9 +3,18 @@ using namespace std;
 
 int month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-bool IsTrue(int m, int d) {
-    if(month[m - 1] >= d) {
+bool IsMonth(int m) {
+    if(m <= 12) {
         return true;
+    }
+    return false;
+}
+
+bool IsTrue(int m, int d) {
+    if(IsMonth(m)) {
+        if(month[m - 1] >= d) {
+            return true;
+        }
     }
     return false;
 }
