@@ -5,7 +5,7 @@ string a;
 string b;
 
 int wh() {
-    for(int i = 0; i < a.length() - b.length(); ++i) {
+    for(int i = 0; i < a.length() - b.length() + 1; ++i) {
         if(a[i] == b[0]) {
             int count = 0;
             for(int j = 0; j < b.length(); ++j) {
