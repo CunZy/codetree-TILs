@@ -25,7 +25,7 @@ int main() {
         cin >> a[i];
     }
 
-    getMax(n);
+    getMax(n - 1);
     cout << Max;
     return 0;
 }
