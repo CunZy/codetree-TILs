@@ -27,7 +27,9 @@ int get(int *a) {
 
     answer = (a[0] * a[1]) / getC(a[0], a[1]);
 
-
+    if(n == 1) {
+        return a[0];
+    }
     if(n > 2) {
         for(int i = 2; i < n; ++i) {
             answer = (answer * a[i]) / getC(answer, a[i]);
