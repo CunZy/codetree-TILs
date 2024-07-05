@@ -13,6 +13,9 @@ int main() {
     for(int i = 0; i < n; ++i) {
         string a;
         cin >> a;
+        if(a.length() > 100) {
+            break;
+        }
         bool e = true;
         for(int j = 0; j < t.length(); ++j) {
             if(a[j] != t[j]) {
