@@ -20,11 +20,12 @@ int main() {
         for(int j = 0; j < t.length(); ++j) {
             if(a[j] != t[j]) {
                 e = false;
+                break;
             }
         }
 
         if(e) {
-            w[i] = a;
+            w[count] = a;
             ++count;
         }
     }
