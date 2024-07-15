@@ -12,17 +12,23 @@ int main() {
 
     int total = 0;
 
-    for(int i = a; i <= c; ++i) {
-        if(i == a) {
-            total += m[a] - b + 1;
-        }
-        else if(i == c) {
-            total += d;
-        }
-        else {
-            total += m[i];
+    if(a == c) {
+        total = d - b + 1;
+    }
+    else {
+        for(int i = a; i <= c; ++i) {
+            if(i == a) {
+                total += m[a] - b + 1;
+            }
+            else if(i == c) {
+                total += d;
+            }
+            else {
+                total += m[i];
+            }
         }
     }
+
 
     cout << total;
     return 0;
