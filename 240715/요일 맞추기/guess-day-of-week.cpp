@@ -19,30 +19,27 @@ int main() {
     int a, b, c, d;
     cin >> a >> b >> c >> d;
 
+    string day[7] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+
+    string day2[7] = {"Tue", "Mon", "Sun", "Sat", "Fri", "Thu", "Wed"};
+
     int tot = total(c, d) - total(a, b) + 1;
+
+    if(a > c || (a == c && b < d)) {
+        tot = total(a, b) - total(c, d) + 1;
+    }
 
     int t = tot % 7;
 
-    if(t == 1) {
-        cout << "Mon" << endl;
+
+
+    if(a > c || (a == c && b < d)) {
+        cout << day2[t] << endl;
     }
-    else if(t == 2) {
-        cout << "Tue" << endl;
+    else {
+        cout << day[t] << endl;
     }
-    else if(t == 3) {
-        cout << "Wed" << endl;
-    }
-    else if(t == 4) {
-        cout << "Thu" << endl;
-    }
-    else if(t == 5) {
-        cout << "Fri" << endl;
-    }
-    else if(t == 6) {
-        cout << "Sat" << endl;
-    }
-    else if(t == 0) {
-        cout << "Sun" << endl;
-    }
+
+
     return 0;
 }
