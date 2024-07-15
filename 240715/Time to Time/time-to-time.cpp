@@ -8,20 +8,6 @@ int main() {
 
     int time = 0;
 
-    while(true) {
-        if(a == c && b == d) {
-            break;
-        }
-
-        ++b;
-        ++time;
-
-        if(b == 60) {
-            a++;
-            b = 0;
-        }
-    }
-
-    cout << time << endl;
+    cout << ((c - a) * 60) + (d - b);
     return 0;
 }
