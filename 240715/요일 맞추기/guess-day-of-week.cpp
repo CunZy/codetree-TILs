@@ -19,13 +19,11 @@ int main() {
     int a, b, c, d;
     cin >> a >> b >> c >> d;
 
-    int tot = total(c, d) - total(a, b);
+    int tot = total(c, d) - total(a, b) + 1;
 
-    int t = tot / 7;
-    if(a == c && b == d) {
-        cout << "Mon" << endl;
-    }
-    else if(t == 1) {
+    int t = tot % 7;
+
+    if(t == 1) {
         cout << "Mon" << endl;
     }
     else if(t == 2) {
