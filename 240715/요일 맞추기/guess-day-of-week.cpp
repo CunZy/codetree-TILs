@@ -22,8 +22,10 @@ int main() {
     int tot = total(c, d) - total(a, b);
 
     int t = tot / 7;
-
-    if(t == 1) {
+    if(a == c && b == d) {
+        cout << "Mon" << endl;
+    }
+    else if(t == 1) {
         cout << "Mon" << endl;
     }
     else if(t == 2) {
