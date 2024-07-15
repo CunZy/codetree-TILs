@@ -10,26 +10,45 @@ int main() {
 
     // solve 1
 
-    int total = 0;
+    // int total = 0;
 
-    if(a == c) {
-        total = d - b + 1;
+    // if(a == c) {
+    //     total = d - b + 1;
+    // }
+    // else {
+    //     for(int i = a; i <= c; ++i) {
+    //         if(i == a) {
+    //             total += m[a] - b + 1;
+    //         }
+    //         else if(i == c) {
+    //             total += d;
+    //         }
+    //         else {
+    //             total += m[i];
+    //         }
+    //     }
+    // }
+
+
+    // cout << total;
+
+    // solve 2
+
+    int total1 = 0;
+
+    for(int i = 1; i < a; ++i) {
+        total1 += m[i];
     }
-    else {
-        for(int i = a; i <= c; ++i) {
-            if(i == a) {
-                total += m[a] - b + 1;
-            }
-            else if(i == c) {
-                total += d;
-            }
-            else {
-                total += m[i];
-            }
-        }
+
+    total1 += b;
+
+    int total2 = 0;
+
+    for(int i = 1; i < c; ++i) {
+        total2 += m[i];
     }
+    total2 += d;
 
-
-    cout << total;
+    cout << total2 - total1 + 1 << endl;
     return 0;
 }
