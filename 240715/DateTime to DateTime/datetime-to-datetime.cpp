@@ -1,13 +1,15 @@
 #include <iostream>
 using namespace std;
 
-bool check(int a, int b) {
-    if(a < 11) {
-        return false;
-    }
-    else {
+bool check(int a, int b, int c) {
+    if(a == 11) {
         if(b < 11) {
             return false;
+        }
+        else {
+            if(c < 11) {
+                return false;
+            }
         }
     }
     return true;
@@ -39,7 +41,7 @@ int main() {
     int a, b, c;
     cin >> a >> b >> c;
 
-    if(check(b, c)) {
+    if(check(a, b, c)) {
         cout << cal(a, b, c);
     }
     else {
