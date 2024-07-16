@@ -34,18 +34,7 @@ int main() {
 
     int day = dayw(c, d) - dayw(a, b) + 1;
 
-    int time = 0;
-
-    day -= dayn;
-
-    while(day >= 0) {
-        ++time;
-        day -= 7;
-    }
-
-    cout << time << endl;
-    
-
+    cout << (day - dayn) / 7 + 1 << endl;
 
 
     return 0;
