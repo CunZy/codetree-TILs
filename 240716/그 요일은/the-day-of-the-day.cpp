@@ -33,8 +33,17 @@ int main() {
     }
 
     int day = dayw(c, d) - dayw(a, b) + 1;
+    
+    int time = 0;
+    int ans = 0;
+    for(int i = 0; i < day; ++i) {
+        if(dayn == time) {
+            ++ans;
+        }
+        time = (time + 1) % 7;
+    }
 
-    cout << (day - dayn - 1) / 7 + 1<< endl;
+    cout << ans << endl;
 
 
     return 0;
