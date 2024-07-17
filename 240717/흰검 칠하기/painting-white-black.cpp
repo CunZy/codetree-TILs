@@ -1,87 +1,69 @@
 #include <iostream>
 using namespace std;
 
-class Tile {
-    public:
-        int n1;
-        int n2;
-        int color;
-
-        Tile(int a = 0, int b = 0, int c = 0) {
-            n1 = a;
-            n2 = b;
-            color = c;
-        }
-};
+int state[100000];
+int numberA[100000];
+int numberB[100000];
 
 int main() {
     // 여기에 코드를 작성해주세요.
-
-    Tile tile[200] = {};
-
-    for(int i = 0; i < 200; ++i) {
-        tile[i] = Tile();
-    }
+    int h = 50000;
 
     int n;
     cin >> n;
 
-    int here = 100;
-
     for(int i = 0; i < n; ++i) {
         int x;
         char y;
-
         cin >> x >> y;
-
         if(y == 'L') {
             for(int j = 0; j < x; ++j) {
-                tile[here].n1 += 1;
-                if(tile[here].n1 == 2 && tile[here].n2 == 2) {
-                    tile[here].color = 3;
-                }
-                else {
-                    tile[here].color = 1;
-                }
-
+                state[h] = 1;
+                numberA[h] += 1;
                 if(j != x - 1) {
-                    here--;
+                    h--;
                 }
             }
         }
         else if(y == 'R') {
             for(int j = 0; j < x; ++j) {
-                tile[here].n2 += 1;
-                if(tile[here].n1 == 2 && tile[here].n2 == 2) {
-                    tile[here].color = 3;
-                }
-                else {
-                    tile[here].color = 2;
-                }
-                if(j != x - 1) {                
-                    ++here;
+                state[h] = 2;
+                numberB[h] += 1;
+                if(j != x - 1) {
+                    h++;
                 }
             }
         }
-
-        
     }
+
+    // for(int i = 0; i < 100000; ++i) {
+    //     if(state[i] != 0) {
+    //         cout << numberA[i] << " ";
+    //     }
+    // }
+    // cout << endl;
+
+    for(int i = 0; i < 100000; ++i) {
+        if(numberA[i] >= 2 && numberB[i] >= 2) {
+            state[i] = 3;
+        }
+    }
+
 
     int w = 0, b = 0, g = 0;
 
-    for(int i = 0; i < 200; ++i) {
-        if(tile[i].color == 1) {
+    for(int i = 0; i < 100000; ++i) {
+        if(state[i] == 1) {
             ++w;
         }
-        else if(tile[i].color == 2) {
+        else if(state[i] == 2) {
             ++b;
         }
-        else if(tile[i].color == 3) {
+        else if(state[i] == 3) {
             ++g;
         }
     }
 
     cout << w << " " << b << " " << g << endl;
-
     return 0;
 }
