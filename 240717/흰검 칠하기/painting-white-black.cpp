@@ -37,10 +37,7 @@ int main() {
         if(y == 'L') {
             for(int j = 0; j < x; ++j) {
                 tile[here].n1 += 1;
-                if(tile[here].n1 > 2 && tile[here].n2 > 2) {
-                    continue;
-                }
-                else if(tile[here].n1 == 2 && tile[here].n2 == 2) {
+                if(tile[here].n1 == 2 && tile[here].n2 == 2) {
                     tile[here].color = 3;
                 }
                 else {
@@ -55,10 +52,7 @@ int main() {
         else if(y == 'R') {
             for(int j = 0; j < x; ++j) {
                 tile[here].n2 += 1;
-                if(tile[here].n1 > 2 && tile[here].n2 > 2) {
-                    continue;
-                }
-                else if(tile[here].n1 == 2 && tile[here].n2 == 2) {
+                if(tile[here].n1 == 2 && tile[here].n2 == 2) {
                     tile[here].color = 3;
                 }
                 else {
