@@ -13,6 +13,9 @@ int main() {
     for(int i = 0; i < n; ++i) {
         cin >> x >> y;
 
+        x += 100;
+        y += 100;
+
         for(int j = 0; j < 8; ++j) {
             for(int k = 0; k < 8; ++k) {
                 a[x + j][y + k] = 1;
