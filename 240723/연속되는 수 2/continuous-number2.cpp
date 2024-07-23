@@ -13,16 +13,20 @@ int main() {
     }
 
     int count = 0;
+    int max = 0;
 
     for(int i = 0; i < n; ++i) {
         if(i == 0 || a[i] == a[i - 1]) {
             count++;
+            if(max < count) {
+                max = count;
+            }
         }
         else if(a[i] != a[i - 1]) {
             count = 1;
         }
     }
 
-    cout << count << endl;
+    cout << max << endl;
     return 0;
 }
