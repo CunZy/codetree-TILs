@@ -25,25 +25,35 @@ int main() {
     int maxx = 0;
     int maxy = 0;
 
+    int t = 0;
     for(int i = 0; i < 2001; ++i) {
         for(int j = 0; j < 2001; ++j) {
             if(a[i][j] == 1) {
                 if(minx > i) {
                     minx = i;
+                    t = 1;
                 }
                 if(miny > j) {
                     miny = j;
+                    t = 1;
                 }
                 if(maxx < i) {
                     maxx = i;
+                    t = 1;
                 }
                 if(maxy < j) {
                     maxy = j;
+                    t = 1;
                 }
             }
         }
     }
 
-    cout << (maxy + 1 - miny) * (maxx + 1 - minx);
+    if(t) {
+        cout << (maxy + 1 - miny) * (maxx + 1 - minx);
+    }
+    else {
+        cout << 0 << endl;
+    }
     return 0;
 }
