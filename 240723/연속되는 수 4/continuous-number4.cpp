@@ -20,9 +20,10 @@ int main() {
         }
         else if(a[i - 1] < a[i]) {
             cnt++;
-            if(ans < cnt) {
-                ans = cnt;
-            }
+        }
+        
+        if(ans < cnt) {
+            ans = cnt;
         }
     }
 
