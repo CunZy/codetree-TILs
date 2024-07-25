@@ -22,6 +22,7 @@ int main() {
         a[num]++;
         if(a[num] >= k) {
             ans = num;
+            break;
         }
     }
 
