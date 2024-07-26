@@ -35,16 +35,26 @@ int main() {
     // }
 
     for(int i = 0; i < T; ++i) {
-        if(d[x[order[i]]] == 1 || d[y[order[i]]] == 1) {
-            if(person[x[order[i]]] < k && person[y[order[i]]] < k) {
-                if(d[x[order[i]]] == 1) {
-                    person[x[order[i]]]++;
-                }
-                if(d[y[order[i]]] == 1) {
-                    person[y[order[i]]]++;
-                }
-                d[x[order[i]]] = 1;
+        if(d[x[order[i]]] == 1 && d[y[order[i]]] == 0) {
+            if(person[x[order[i]]] < k) {
+                person[x[order[i]]]++;
                 d[y[order[i]]] = 1;
+            }
+        }
+        else if(d[x[order[i]]] == 0 && d[y[order[i]]] == 1) {
+            if(person[y[order[i]]] < k) {
+                person[y[order[i]]]++;
+                d[x[order[i]]] = 1;
+            }
+        }
+        else if(d[x[order[i]]] == 1 && d[y[order[i]]] == 1) {
+            if(person[x[order[i]]] < k && person[y[order[i]]] < k) {
+                person[x[order[i]]]++;
+                person[y[order[i]]]++;
+            }
+            else if((person[x[order[i]]] < k && person[y[order[i]] >= k]) || (person[x[order[i]]] >= k && person[y[order[i]]] < k)) {
+                person[x[order[i]]]++;
+                person[y[order[i]]]++;
             }
         }
 
