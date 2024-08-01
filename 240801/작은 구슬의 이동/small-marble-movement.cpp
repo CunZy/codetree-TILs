@@ -17,7 +17,7 @@ int dirc(char d) {
 }
 
 bool IsTrue(int r, int c, int n) {
-    return (r >= 0 && r <= n - 1 && c >= 0 && c < n - 1);
+    return (r >= 0 && r <= n - 1 && c >= 0 && c < n);
 }
 
 int main() {
