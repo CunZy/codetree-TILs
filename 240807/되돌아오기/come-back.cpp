@@ -45,7 +45,7 @@ int main() {
 
     bool IsTrue = true;
 
-    for(int i = 1; i <= time; ++i) {
+    for(int i = 1; i < time; ++i) {
         if(x[i] == 0 && y[i] == 0) {
             IsTrue = false;
             cout << i << endl;
