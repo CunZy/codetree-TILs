@@ -37,7 +37,7 @@ int main() {
             }
         }
 
-        if(count >= 3) {
+        if(count == 3) {
             cout << 1 << endl;
         }
         else {
