@@ -31,11 +31,10 @@ int main() {
     int k;
     cin >> k;
 
-    int x, y;
 
     int sx = 0, sy = 0;
     int dsx[4] = {0, 1, 0, -1};
-    int dsy[4] = {1, 0, -1, 0};
+    int dsy[4] = {1, 0, -1, 0}; // 오른, 아래, 왼, 위
     int sd = 0;
 
     for(int i = 0; i < k; ++i) {
@@ -53,15 +52,6 @@ int main() {
         }
     }
 
-    // cout << sx << " " << sy << endl;
-
-    // // /
-    // int dx1[4] = {1, -1, 0, 0}; // 아래, 위, 오른, 왼
-    // int dy1[4] = {0, 0, 1, -1}; // 0   , 1 , 2 ,   3
-
-    // // \ /
-    // int dx2[4] = {1, -1, 0, 0}; // 아래, 위, 왼, 오른
-    // int dy2[4] = {0, 0, -1, 1}; //  0 ,  1,  2,   3
 
     int dx[4] = {1, 0, -1, 0}; // 아래, 왼, 위, 오른
     int dy[4] = {0, -1, 0, 1}; //   0,  1,  2,   3
@@ -72,39 +62,43 @@ int main() {
         dir = 0;
     }
     else if(k <= 2 * n) {
-        if(a[sx][sy] == '/') {
-            dir = 3;
-        }
-        else if(a[sx][sy] == '\\') {
-            dir = 2;
-        }
-    }
-    else if(k <= 3 * n) {
         dir = 1;
     }
+    else if(k <= 3 * n) {
+        dir = 2;
+    }
     else {
-        if(a[sx][sy] == '/') {
-            dir = 2;
-        }
-        else if(a[sx][sy] == '\\') {
-            dir = 3;
-        }
+        dir = 3;
     }
 
-    // cout << dir << endl;
+    // cout << sx << " " << sy << " " << dir << endl;
 
     int count = 0;
 
     while(IsRange(sx, sy, n)) {
         if(a[sx][sy] == '/') {
-            dir = (dir + 3) % 4;
-            sx += dx[dir];
-            sy += dy[dir];
+            if(dir == 0 || dir == 2) {
+                dir = (dir + 1) % 4;
+                sx += dx[dir];
+                sy += dy[dir];
+            }
+            else if(dir == 1 || dir == 3) {
+                dir = (dir + 3) % 4;
+                sx += dx[dir];
+                sy += dy[dir];
+            }
         }
         else if(a[sx][sy] == '\\') {
-            dir = (dir + 1) % 4;
-            sx += dx[dir];
-            sy += dy[dir];
+            if(dir == 0 || dir == 2) {
+                dir = (dir + 3) % 4;
+                sx += dx[dir];
+                sy += dy[dir];
+            }
+            else if(dir == 1 || dir == 3) {
+                dir = (dir + 1) % 4;
+                sx += dx[dir];
+                sy += dy[dir];
+            }
         }
         count++;
     }
