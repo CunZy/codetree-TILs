@@ -17,13 +17,13 @@ int main() {
     int cnt = 0;
     int x = 0, y = 0;
 
-    if(a[r - 1][c - 1] != 'W') {
+    if(a[0][0] != a[r - 1][c - 1]) {
         for(int i = 1; i < r - 2; ++i) {
             for(int j = 1; j < c - 2; ++j) {
-                if(a[i][j] == 'B') {
+                if(a[i][j] != a[0][0]) {
                     for(int k = i + 1; k < r - 1; ++k) {
                         for(int p = j + 1; p < c - 1; ++p) {
-                            if(a[k][p] == 'W') {
+                            if(a[k][p] != a[i][j]) {
                                 ++cnt;
                             }
                         }
