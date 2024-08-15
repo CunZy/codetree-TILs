@@ -33,7 +33,7 @@ int main() {
                 sy = y[j - 1];
             }
             else if(i + 1 == j) {
-                sum = sum + abs(x[j] - x[sx]) + abs(y[j] - y[sy]);
+                sum = sum + abs(x[j] - sx) + abs(y[j] - sy);
             }
             else {
                 sum = sum + abs(x[j] - x[j - 1]) + abs(y[j] - y[j - 1]);
