@@ -14,6 +14,7 @@ int main() {
     }
 
     int max = INT_MIN;
+    bool carry = false;
 
     for(int i = 0; i < n; ++i) {
         for(int j = i + 1; j < n; ++j) {
@@ -37,6 +38,7 @@ int main() {
 
                     if(b == 0 && c == 0 && t == 0) {
                         IsTrue = true;
+                        carry = true;
                         break;
                     }
                 }
@@ -45,15 +47,20 @@ int main() {
 
                 if(IsTrue) {
                     hubo = a[i] + a[j] + a[k];
+                    if(hubo > max) {
+                        max = hubo;
+                    }
                 }
 
-                if(hubo > max) {
-                    max = hubo;
-                }
             }
         }
     }
 
-    cout << max << endl;
+    if(carry) {
+        cout << max << endl;
+    }
+    else {
+        cout << -1 << endl;
+    }
     return 0;
 }
