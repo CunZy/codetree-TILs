@@ -19,45 +19,37 @@ int main() {
 
     for(int i = 0; i < 19; ++i) {
         for(int j = 0; j < 19; ++j) {
+            dir = 0;
             if(a[i][j] != 0) {
-                int time = 0;
 
                 for(int k = 0; k < 3; ++k) {
-                    ++time;
                     if(a[i + x[dir]][j + y[dir]] == a[i][j]) {
-                        break;
+                        int time = 0;
+
+                        int sx = i;
+                        int sy = j;
+
+                        for(int l = 0; l < 4; ++l) {
+                            sx += x[dir];
+                            sy += y[dir];
+
+                            if(a[sx][sy] != a[i][j]) {
+                                break;
+                            }
+                            else {
+                                time++;
+                            }
+                        }
+
+                        if(time == 4) {
+                            cout << a[i][j] << endl;
+                            cout << i + x[dir] * 2 + 1 << " " << j + y[dir] * 2 + 1 << endl;
+                            IsTrue = true;
+                            return 0;
+                        }
                     }
-                    else {
-                        dir = (dir + 1) % 3;
-                    }
-                }
-
-                if(time == 3) {
-                    break;
-                }
-                
-                time = 0;
-
-                int sx = i;
-                int sy = j;
-
-                for(int k = 0; k < 4; ++k) {
-                    sx += x[dir];
-                    sy += y[dir];
-
-                    if(a[sx][sy] != a[i][j]) {
-                        break;
-                    }
-                    else {
-                        time++;
-                    }
-                }
-
-                if(time == 4) {
-                    cout << a[i][j] << endl;
-                    cout << i + x[dir] * 2 + 1 << " " << j + y[dir] * 2 + 1 << endl;
-                    IsTrue = true;
-                    return 0;
+                    
+                    dir = (dir + 1) % 3;
                 }
             }
         }
