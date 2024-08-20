@@ -10,8 +10,8 @@ int main() {
         }
     }
 
-    int x[3] = {0, 1, 1};
-    int y[3] = {1, 1, 0};
+    int x[4] = {0, 1, 1, 1};
+    int y[4] = {1, 1, 0, -1};
 
     int dir = 0;
 
@@ -22,7 +22,7 @@ int main() {
             dir = 0;
             if(a[i][j] != 0) {
 
-                for(int k = 0; k < 3; ++k) {
+                for(int k = 0; k < 4; ++k) {
                     if(a[i + x[dir]][j + y[dir]] == a[i][j]) {
                         int time = 0;
 
@@ -49,7 +49,7 @@ int main() {
                         }
                     }
                     
-                    dir = (dir + 1) % 3;
+                    dir = (dir + 1) % 4;
                 }
             }
         }
