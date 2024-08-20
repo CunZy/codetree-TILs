@@ -42,7 +42,7 @@ int main() {
                     ++cur;
                 }
                 
-                if(cur == 2) {
+                if(cur >= 2) {
                     ++cnt;
                 }
                 dir = (dir + 1) % 8;
