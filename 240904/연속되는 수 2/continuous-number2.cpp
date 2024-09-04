@@ -16,7 +16,7 @@ int main() {
             save[i] = cnt;
         }
     }
-    cnt = 0;
+    cnt = 1;
     for(int i=0; i<n; i++){
         if(save[i]>cnt){
             cnt = save[i];
