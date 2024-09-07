@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#define MAX 1000
+#define MAX 1000000
 int main() {
     // 여기에 코드를 작성해주세요.
 
