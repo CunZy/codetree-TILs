@@ -27,21 +27,35 @@ int main() {
 
     int ans = INT_MIN;
 
-    for(int i = 1; i <= ma - k; ++i) {
-        int pre = 0;
-        for(int j = i; j <= i + k; ++j) {
-            if(location[j] == 'G') {
-                pre += 1;
+    if(k <= ma) {
+        for(int i = 1; i <= ma - k; ++i) {
+            int pre = 0;
+            for(int j = i; j <= i + k; ++j) {
+                if(location[j] == 'G') {
+                    pre += 1;
+                }
+                else if(location[j] == 'H') {
+                    pre += 2;
+                }
             }
-            else if(location[j] == 'H') {
-                pre += 2;
+
+            // cout << pre << endl;
+
+            ans = max(ans, pre);
+        }
+    }
+    else {
+        ans = 0;
+        for(int i = 1; i <= ma; ++i) {
+            if(location[i] == 'G') {
+                ans += 1;
+            }
+            else if(location[i] == 'H') {
+                ans += 2;
             }
         }
-
-        // cout << pre << endl;
-
-        ans = max(ans, pre);
     }
+
 
     cout << ans << endl;
 
