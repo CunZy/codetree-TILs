@@ -139,13 +139,10 @@ void bfs(int row, int col, vector<vector<int>> &v){
             int new_c = c+dx[d];
 
             // new_r와 new_c 의 범위 체크 먼저 하고 arr/v 접근시켜야 함
-            if (new_r >=0 && new_r <n && new_c >=0 && new_c < n){
-                if (v[new_r][new_c] == 0 && arr[new_r][new_c] == arr[r][c]){
+            if (new_r >=0 && new_r <n && new_c >=0 && new_c < n && v[new_r][new_c] == 0 && arr[new_r][new_c] == arr[r][c]){
                     q.push({new_r, new_c});
                     v[new_r][new_c] = 1;
                     groups.back().insert({new_r, new_c});
-                }
-
             } 
                 
         }
