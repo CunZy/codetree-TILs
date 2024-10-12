@@ -57,7 +57,7 @@ int main(){
                     + forest[golrem_row+1][golrem_col-2]+ forest[golrem_row+2][golrem_col-1]==0){
                 golrem_col--;
                 golrem_row++;
-                dir = (dir-1)%4;
+                dir = (dir+3)%4;
             }
             // 동쪽 회전 하강
             else if(forest[golrem_row+1][golrem_col+1]+ forest[golrem_row-1][golrem_col+1]+forest[golrem_row][golrem_col+2]
