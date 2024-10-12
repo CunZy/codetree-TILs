@@ -10,12 +10,13 @@ using namespace std;
 
 int n, m;
 vector<vector<int>> arr;
-int ans=0;
-void bfs(int row, int col, vector<vector<int>> &v);
 
 vector<set<pair<int, int>>> groups;
 vector<int> nums;
 
+
+int ans=0;
+void bfs(int row, int col, vector<vector<int>> &v);
 
 int dy[]={-1,0,1,0};
 int dx[]={0,1,0,-1};
@@ -36,14 +37,16 @@ int main(){
         }
     }
 
-    m = (n)/2;
+    m = n/2; // 삽질을 하지 말자 ~~~ !!!!!
 
     for (int k=0; k<4; ++k){
         // 예술점수 구하기 bfs
         groups.clear(); // 그룹 재조직 (회전햇으니까)
         nums.clear(); // 점수도 재조직  
         // v 쓰임 as visited
-        vector<vector<int>> v(n, vector<int>(n, 0)); // visited 2d arr
+        
+        vector<vector<int>> v(n, vector<int>(n, 0));
+
         // grouping
         for (int i=0; i<n; ++i){
             for (int j=0; j<n; ++j){
@@ -106,11 +109,6 @@ int main(){
 
             for (int i=0; i<m; ++i){
                 for (int j=0; j<m; ++j){
-                    if (s_row + m - j - 1 >= 0 && s_row + m - j - 1 < n && 
-                        s_col + i >= 0 && s_col + i < n) {
-                        narr[s_row + i][s_col + j] = arr[s_row + m - j - 1][s_col + i];
-                    }
-
                     narr[s_row+i][s_col+j] = arr[s_row + m - j - 1][s_col+i];
                 }
             }
