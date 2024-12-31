@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cstdlib>
+#include <climits>
 
 using namespace std;
 
@@ -15,15 +16,15 @@ int main() {
         cin >> a[i];
     }
 
-    int max_num = 0;
+    int max_num = INT_MAX;
 
     for(int i = 0; i < n; ++i) {
         int max_case = 0;
         for(int j = 0; j < n; ++j) {
-            max_case += abs(a[i] - a[j]);
+            max_case += abs(i - j) * a[j];
         }
 
-        if(max_num < max_case) {
+        if(max_num > max_case) {
             max_num = max_case;
         }
     }
