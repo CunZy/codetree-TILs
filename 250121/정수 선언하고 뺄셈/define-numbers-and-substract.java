@@ -6,6 +6,6 @@ public class Main {
         a = 97;
         b = 13;
 
-        System.out.println(a - b);
+        System.out.println(a + " - " + b + " = " + (a - b));
     }
 }
