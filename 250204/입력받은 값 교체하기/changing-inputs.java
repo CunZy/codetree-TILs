@@ -12,6 +12,6 @@ public class Main {
         a = b;
         b = t;
 
-        System.out.print("%d %d", a, b);
+        System.out.printf("%d %d", a, b);
     }
 }
