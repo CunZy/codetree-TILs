@@ -5,7 +5,7 @@ public class Main {
         // Please write your code here.
         Scanner sc = new Scanner(System.in);
 
-        sc.useDelimiter(".");
+        sc.useDelimiter("\\.");
         int y = sc.nextInt(), m = sc.nextInt(), d = sc.nextInt();
 
         System.out.printf("%d-%d-%d", m, d, y);
