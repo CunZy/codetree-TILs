@@ -11,9 +11,8 @@ public class Main {
             System.out.print(a - b);
         }
 
-        if(b > a) {
+        if(b >= a) {
             System.out.print(b - a);
         }
-        
     }
 }
