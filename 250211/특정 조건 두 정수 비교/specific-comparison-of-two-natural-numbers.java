@@ -13,7 +13,7 @@ public class Main {
         else {
             System.out.print(0);
         }
-        System.out.println();
+        System.out.print(" ");
 
         if(a == b) {
             System.out.println(1);
