@@ -7,6 +7,6 @@ public class Main {
 
         int a = sc.nextInt();
 
-        if(a == 100 ? "pass" : "failure");
+        System.out.print(a == 100 ? "pass" : "failure");
     }
 }
