@@ -8,7 +8,7 @@ public class Main {
 
         int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
 
-        if(a < b && a < c) {
+        if(a <= b && a <= c) {
             System.out.printf("%d ", 1);
         }
         else {
