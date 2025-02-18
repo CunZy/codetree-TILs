@@ -5,10 +5,12 @@ public class Main {
         // Please write your code here.
         Scanner sc = new Scanner(System.in);
 
-        sc.useDelimiter(".");
+        sc.useDelimiter("\\.");
 
-        int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int d = sc.nextInt();
 
-        System.out.printf("%d-%d-%d", b, c, a);
+        System.out.printf("%d-%d-%d", b, d, a);
     }
 }
