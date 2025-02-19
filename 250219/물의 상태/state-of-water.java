@@ -14,7 +14,7 @@ public class Main {
             System.out.print("vapor");
         }
         else {
-            System.out.print("water")
+            System.out.print("water");
         }
     }
 }
