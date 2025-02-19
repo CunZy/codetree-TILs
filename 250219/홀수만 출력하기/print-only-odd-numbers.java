@@ -10,7 +10,7 @@ public class Main {
         for(int i = 0; i < a; ++i) {
             int n = sc.nextInt();
 
-            if(n % 3 == 0) {
+            if(n % 3 == 0 && n % 2 == 1) {
                 System.out.println(n);
             }
         }
