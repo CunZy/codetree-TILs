@@ -6,6 +6,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt(), b = sc.nextInt(), c = sc.nextInt();
 
-        System.out.printf("%d %d", (a + b + c), (a + b + c) / 3);
+        System.out.printf("%d\n%d", (a + b + c), (a + b + c) / 3);
     }
 }
