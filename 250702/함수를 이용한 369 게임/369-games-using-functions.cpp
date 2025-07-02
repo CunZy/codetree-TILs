@@ -12,11 +12,15 @@ bool isTrue3(int i) {
 }
 
 bool isTrue2(int i) {
-    int q = i / 100;
-    int w = (i % 100) / 10;
-    int e = i % 10;
+    while(i) {
+        int t = i % 10;
+        i = i / 10;
 
-    return isTrue3(q) || isTrue3(w) || isTrue3(e);
+        if(isTrue3(t)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 bool isTrue(int i) {
