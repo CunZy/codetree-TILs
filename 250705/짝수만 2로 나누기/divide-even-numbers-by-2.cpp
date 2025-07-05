@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int n;
+int arr[50];
+
+void divide(int *a) {
+    for(int i = 0; i < n; ++i) {
+        if(a[i] % 2 == 0) {
+            a[i] /= 2;
+        }
+    }
+}
+
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Please write your code here.
+    divide(arr);
+
+    for(int i = 0; i < n; ++i) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
