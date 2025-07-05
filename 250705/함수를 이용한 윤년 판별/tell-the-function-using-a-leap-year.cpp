@@ -8,10 +8,7 @@ bool isYear(int e) {
     if(e % 4 != 0) {
         return false;
     }
-    if(e % 100 != 0) {
-        return false;
-    }
-    if(e % 400 != 0) {
+    if(e % 100 == 0 && e % 400 != 0) {
         return false;
     }
     return true;
@@ -25,7 +22,7 @@ int main() {
         cout << "true";
     }
     else {
-        cout << "false;"
+        cout << "false";
     }
     return 0;
 }
