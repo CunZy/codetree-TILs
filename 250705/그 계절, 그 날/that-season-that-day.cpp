@@ -36,13 +36,13 @@ int main() {
         return 0;
     }
 
-    if(3 <= m && m <= 5) {
+    if(3 <= M && M <= 5) {
         cout << "Spring";
     }
-    else if(6 <= m && m <= 8) {
+    else if(6 <= M && M <= 8) {
         cout << "Summer";
     }
-    else if(9 <= m && m <= 11) {
+    else if(9 <= M && M <= 11) {
         cout << "Fall";
     }
     else {
