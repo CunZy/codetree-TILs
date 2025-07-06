@@ -7,17 +7,18 @@ int A[100];
 
 int total;
 
-change() {
+void change() {
     while(m != 1) {
         if(m % 2 == 0) {
-            total += A[m];
+            total += A[m - 1];
             m /= 2;
         }
         else {
-            total += A[m];
+            total += A[m - 1];
             m -= 1;
         }
     }
+    total += A[0];
 }
 
 int main() {
