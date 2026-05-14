@@ -1,30 +1,27 @@
-#include <iostream>
 #include <algorithm>
+#include <iostream>
 #include <vector>
 using namespace std;
 
-int n;
-string t[50000];
+vector<string> a;
 
-bool cmp(string a, string b) {
-    string t1 = a + b;
-    string t2 = b + a;
-
-    return t1 > t2;
+bool cmp(string q, string b) {
+    return q + b >= b + q;
 }
 
 int main() {
-    // Please write your code here.
+    int n;
     cin >> n;
 
     for(int i = 0; i < n; ++i) {
-        cin >> t[i];
+        string t;
+        cin >> t;
+        a.push_back(t);
     }
 
-    sort(t, t + n, cmp);
+    sort(a.begin(), a.end(), cmp);
 
     for(int i = 0; i < n; ++i) {
-        cout << t[i];
+        cout << a[i];
     }
-    return 0;
 }
