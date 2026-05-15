@@ -1,53 +1,54 @@
 #include <iostream>
 using namespace std;
 
+#define MAX_N 100
+#define MAX_M 1000
+
 int n, m;
-int graph[101][101];
-int source = 1;
-int dist[101];
-bool visit[101];
+int edges[MAX_N + 1][MAX_N + 1];
+int dist[MAX_N + 1];
+int visited[MAX_N + 1];
 
 int main() {
-    // Please write your code here.
     cin >> n >> m;
 
     for(int i = 0; i < m; ++i) {
-        int x, y, v;
-        cin >> x >> y >> v;
-        graph[x][y] = v;
+        int s, e, v;
+        cin >> s >> e >> v;
+
+        edges[s][e] = v;
     }
 
     for(int i = 1; i <= n; ++i) {
-        dist[i] = 100000;
+        dist[i] = (int)1e9;
     }
-
-    dist[source] = 0;
+    dist[1] = 0;
 
     for(int i = 1; i <= n; ++i) {
-        int idx = -1;
+        int min_idx = -1;
 
         for(int j = 1; j <= n; ++j) {
-            if(visit[j]) continue;
+            if(visited[j]) continue;
 
-            if(idx == -1 || dist[idx] > dist[j]) idx = j;
+            if(min_idx == -1 || dist[min_idx] > dist[j]) {
+                min_idx = j;
+            }
         }
 
-        visit[idx] = true;
+        visited[min_idx] = true;
 
         for(int j = 1; j <= n; ++j) {
-            if(graph[idx][j] == 0) continue;
+            if(edges[min_idx][j] == 0) continue;
 
-            if(graph[idx][j] != 0) {
-                int t = dist[idx] + graph[idx][j];
-                dist[j] = min(dist[j], t);
-            }
+            int t = edges[min_idx][j] + dist[min_idx];
+
+            if(dist[j] > t) dist[j] = t;
         }
     }
 
     for(int i = 2; i <= n; ++i) {
-        if(dist[i] == 100000) dist[i] = -1;
-        cout << dist[i] << endl;
+        if(dist[i] == (int)1e9) cout << -1 << endl;
+        else cout << dist[i] << endl;
+        // cout << dist[i] << endl;
     }
-
-    return 0;
 }
