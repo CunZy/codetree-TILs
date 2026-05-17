@@ -1,77 +1,87 @@
 #include <iostream>
 #include <tuple>
-#include <queue>
 #include <vector>
-#include <functional>
+#include <algorithm>
+#include <queue>
 using namespace std;
 
 #define MAX_N 1000
 
-int n, m;
-int a, b;
-vector<pair<int, int>> graph[MAX_N + 1];
+vector<pair<int, int>> edge[MAX_N + 1];
 priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
 int dist[MAX_N + 1];
-int path[MAX_N + 1];
-vector<int> way;
+bool visited[MAX_N + 1];
+int way[MAX_N + 1];
+
+int n, m;
+int a, b;
 
 int main() {
-    // Please write your code here.
     cin >> n >> m;
-    for(int i = 0; i < m; ++i) {
-        int x, y, edge;
-        cin >> x >> y >> edge;
 
-        graph[x].push_back(make_pair(y, edge));
-        graph[y].push_back(make_pair(x, edge));
+    for(int i = 0; i < m; ++i) {
+        int s, e, v;
+        cin >> s >> e >> v;
+        edge[s].push_back(make_pair(e, v));
+        edge[e].push_back(make_pair(s, v));
     }
 
     cin >> a >> b;
 
-
-    for(int i = 0; i <= n; ++i) {
+    for(int i = 1; i <= n; ++i) {
         dist[i] = (int)1e9;
     }
-
     dist[a] = 0;
 
     q.push(make_pair(0, a));
-
 
     while(!q.empty()) {
         int min_idx, min_dist;
         tie(min_dist, min_idx) = q.top();
         q.pop();
 
-        if(min_dist != dist[min_idx]) continue;
+        if(visited[min_idx]) continue;
 
-        for(int i = 0; i < graph[min_idx].size(); ++i) {
-            int idx, edge;
-            tie(idx, edge) = graph[min_idx][i];
+        visited[min_idx] = true;
 
-            int new_dist = edge + dist[min_idx];
+        for(int i = 0; i < edge[min_idx].size(); ++i) {
+            int idx, d;
+            tie(idx, d) = edge[min_idx][i];
 
-            if(dist[idx] > new_dist) {
-                path[idx] = min_idx;
-                dist[idx] = new_dist;
-                q.push(make_pair(new_dist, idx));
+            int t = d + dist[min_idx];
+
+            if(dist[idx] > t) {
+                dist[idx] = t;
+                way[idx] = min_idx;
+                q.push(make_pair(t, idx));
             }
         }
     }
 
-    int x = b;
-    way.push_back(x);
+    vector<int> ways;
+    int answer = dist[b];
+
+    // for(int i = 0; i < n; ++i) {
+    //     cout << dist[i] << " ";
+    // }
+    // cout << endl;
+    // for(int i = 0; i < n; ++i) {
+    //     cout << way[i] << " ";
+    // }
+    // cout << endl;
+
+    int idx = b;
+
+    ways.push_back(b);
+    while(idx != a) {
+        idx = way[idx];
+        ways.push_back(idx);
+    }
+
+    cout << answer << endl;
+
+    for(int i = ways.size() - 1; i >= 0; --i) {
+        cout << ways[i] << " ";
+    }
     
-    while(x != a) {
-        x = path[x];
-        way.push_back(x);
-    }
-
-    cout << dist[b] << endl;
-
-    for(int i = way.size() - 1; i >= 0; --i) {
-        cout << way[i] << " ";
-    }
-
-    return 0;
 }
