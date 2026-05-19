@@ -2,40 +2,41 @@
 #include <vector>
 using namespace std;
 
-#define MAX_N 100000
+#define MAX_N  100000
 
-int n;
 vector<int> graph[MAX_N + 1];
-bool visit[MAX_N + 1];
-int parents[MAX_N + 1];
+int n;
+bool visited[MAX_N + 1];
+int parent[MAX_N + 1];
 
-void DFS(int v) {
-    for(int i = 0; i < graph[v].size(); ++i) {
-        if(visit[graph[v][i]]) continue;
+void DFS(int idx) {
+    for(int i = 0; i < graph[idx].size(); ++i) {
+        int t = graph[idx][i];
 
-        visit[graph[v][i]] = true;
-        parents[graph[v][i]] = v;
-        DFS(graph[v][i]);
+        if(!visited[t]) {
+            visited[t] = true;
+            parent[t] = idx;
+            DFS(t);
+        }
     }
 }
 
 int main() {
-    // Please write your code here.
     cin >> n;
 
     for(int i = 0; i < n; ++i) {
-        int x, y;
-        cin >> x >> y;
+        int s, e;
+        cin >> s >> e;
 
-        graph[x].push_back(y);
-        graph[y].push_back(x);
+        graph[s].push_back(e);
+        graph[e].push_back(s);
     }
 
-    visit[1] = true;
+
+    visited[1] = true;
     DFS(1);
 
     for(int i = 2; i <= n; ++i) {
-        cout << parents[i] << endl;
+        cout << parent[i] << endl;
     }
-    return 0;
 }
