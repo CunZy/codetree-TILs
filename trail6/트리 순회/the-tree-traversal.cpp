@@ -2,44 +2,42 @@
 #include <unordered_map>
 using namespace std;
 
+#define MAX_N 26
+
 int n;
-unordered_map<char, int> a;
-char L[27];
-char R[27];
+unordered_map<char, int> parent;
+int Left[MAX_N + 1], Right[MAX_N + 1];
 
-void PreOrder(char idx) {
-    if(idx == '.' || idx == ' ') return;
-    cout << idx;
-    PreOrder(L[a[idx]]);
-    PreOrder(R[a[idx]]);
+void PreOrder(char t) {
+    if(t == '.') return;
+    cout << t;
+    PreOrder(Left[parent[t]]);
+    PreOrder(Right[parent[t]]);
 }
 
-void InOrder(char idx) {
-    if(idx == '.' || idx == ' ') return;
-
-    InOrder(L[a[idx]]);
-    cout << idx;
-    InOrder(R[a[idx]]);
+void InOrder(char t) {
+    if(t == '.') return;
+    InOrder(Left[parent[t]]);
+    cout << t;
+    InOrder(Right[parent[t]]);
 }
 
-void PostOrder(char idx) {
-    if(idx == '.' || idx == ' ') return;
-
-    PostOrder(L[a[idx]]);
-    PostOrder(R[a[idx]]);
-    cout << idx;
+void PostOrder(char t) {
+    if(t == '.') return;
+    PostOrder(Left[parent[t]]);
+    PostOrder(Right[parent[t]]);
+    cout << t;
 }
 
 int main() {
-    // Please write your code here.
     cin >> n;
     for(int i = 1; i <= n; ++i) {
-        char q, w, e;
-        cin >> q >> w >> e;
+        char a, b, c;
+        cin >> a >> b >> c;
 
-        a[q] = i;
-        L[i] = w;
-        R[i] = e;
+        parent[a] = i;
+        Left[i] = b;
+        Right[i] = c;
     }
 
     PreOrder('A');
@@ -47,5 +45,5 @@ int main() {
     InOrder('A');
     cout << endl;
     PostOrder('A');
-    return 0;
+    cout << endl;
 }
