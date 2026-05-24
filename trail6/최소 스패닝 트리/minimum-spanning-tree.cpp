@@ -1,55 +1,51 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
-#include <set>
 #include <tuple>
+#include <queue>
 using namespace std;
 
 #define MAX_N 10000
-#define MAX_M 100000
 
 int n, m;
+priority_queue<tuple<int, int, int>> edge;
 int uf[MAX_N + 1];
-vector<tuple<int, int, int>> edge;
 
-int find(int x) {
+int Find(int x) {
     if(x == uf[x]) return x;
-
-    uf[x] = find(uf[x]);
+    uf[x] = Find(uf[x]);
     return uf[x];
 }
 
 void Union(int x, int y) {
-    int X = find(x), Y = find(y);
+    int X = Find(x), Y = Find(y);
     uf[X] = Y;
 }
 
 int main() {
-    // Please write your code here.
     cin >> n >> m;
-
     for(int i = 0; i < m; ++i) {
-        int a, b, e;
-        cin >> a >> b >> e;
+        int v, s, e;
+        cin >> s >> e >> v;
 
-        edge.push_back(make_tuple(e, a, b));
+        edge.push(make_tuple(-v, s, e));
     }
-    sort(edge.begin(), edge.end());
+
+    int answer = 0;
 
     for(int i = 1; i <= n; ++i) {
         uf[i] = i;
     }
 
-    int answer = 0;
-    for(int i = 0; i < m; ++i) {
-        int a, b, e;
-        tie(e, a, b) = edge[i];
+    while(!edge.empty()) {
+        int v, s, e;
+        tie(v, s, e) = edge.top();
+        edge.pop();
+        v *= -1;
 
-        if(find(a) != find(b)) {
-            Union(a, b);
-            answer += e;
+        if(Find(s) != Find(e)) {
+            Union(s, e);
+            answer += v;
         }
     }
+
     cout << answer;
-    return 0;
 }
