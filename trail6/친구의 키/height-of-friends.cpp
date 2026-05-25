@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stack>
+#include <queue>
 #include <vector>
 using namespace std;
 
@@ -7,40 +7,35 @@ using namespace std;
 
 int n, m;
 vector<int> graph[MAX_N + 1];
-stack<int> order;
-bool visited[MAX_N + 1];
-
-void DFS(int idx) {
-    for(int i = 0; i < graph[idx].size(); ++i) {
-        int t = graph[idx][i];
-        if(!visited[t]) {
-            visited[t] = true;
-            DFS(t);
-        }
-    }
-
-    order.push(idx);
-}
+queue<int> q;
+int degree[MAX_N + 1];
 
 int main() {
     cin >> n >> m;
-
     for(int i = 0; i < m; ++i) {
         int a, b;
         cin >> a >> b;
 
         graph[a].push_back(b);
+        degree[b]++;
     }
 
     for(int i = 1; i <= n; ++i) {
-        if(!visited[i]) {
-            visited[i] = true;
-            DFS(i);
-        }
+        if(degree[i] == 0) q.push(i);
     }
 
-    while(!order.empty()) {
-        cout << order.top() << " ";
-        order.pop();
+    while(!q.empty()) {
+        int x = q.front();
+        q.pop();
+
+        cout << x << " ";
+
+        for(int i = 0; i < graph[x].size(); ++i) {
+            int t = graph[x][i];
+
+            degree[t]--;
+
+            if(degree[t] == 0) q.push(t);
+        }
     }
 }
