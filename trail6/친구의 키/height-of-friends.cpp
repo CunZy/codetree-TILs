@@ -1,6 +1,7 @@
 #include <iostream>
-#include <queue>
 #include <vector>
+#include <queue>
+#include <tuple>
 using namespace std;
 
 #define MAX_N 100000
@@ -8,10 +9,12 @@ using namespace std;
 int n, m;
 vector<int> graph[MAX_N + 1];
 queue<int> q;
+bool visited[MAX_N + 1];
 int degree[MAX_N + 1];
 
 int main() {
     cin >> n >> m;
+
     for(int i = 0; i < m; ++i) {
         int a, b;
         cin >> a >> b;
@@ -25,13 +28,13 @@ int main() {
     }
 
     while(!q.empty()) {
-        int x = q.front();
+        int idx = q.front();
         q.pop();
 
-        cout << x << " ";
+        cout << idx << " ";
 
-        for(int i = 0; i < graph[x].size(); ++i) {
-            int t = graph[x][i];
+        for(int i = 0; i < graph[idx].size(); ++i) {
+            int t = graph[idx][i];
 
             degree[t]--;
 
