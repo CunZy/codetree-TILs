@@ -1,30 +1,29 @@
 #include <iostream>
 #include <vector>
-#include <queue>
 #include <functional>
+#include <queue>
 using namespace std;
 
 #define MAX_N 32000
 
-priority_queue<int, vector<int>, greater<int>> q;
-vector<int> a[MAX_N + 1];
-int degree[MAX_N + 1];
 int n, m;
+vector<int> graph[MAX_N + 1];
+priority_queue<int, vector<int>, greater<int>> q;
+int degree[MAX_N + 1];
 
 int main() {
-    // Please write your code here.
     cin >> n >> m;
 
     for(int i = 0; i < m; ++i) {
-        int e, r;
-        cin >> e >> r;
+        int a, b;
+        cin >> a >> b;
 
-        a[e].push_back(r);
-        degree[r]++;
+        graph[a].push_back(b);
+        degree[b]++;
     }
 
     for(int i = 1; i <= n; ++i) {
-        if(degree[i] == 0) q.push(i);
+        if(!degree[i]) q.push(i);
     }
 
     while(!q.empty()) {
@@ -33,15 +32,12 @@ int main() {
 
         cout << idx << " ";
 
-        for(int i = 0; i < a[idx].size(); ++i) {
-            int cur = a[idx][i];
-            degree[cur]--;
+        for(int i = 0; i < graph[idx].size(); ++i) {
+            int t = graph[idx][i];
 
-            if(degree[cur] == 0) {
-                q.push(cur);
-            }
+            degree[t]--;
+
+            if(!degree[t]) q.push(t);
         }
     }
-
-    return 0;
 }
