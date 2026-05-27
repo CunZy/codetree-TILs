@@ -1,72 +1,60 @@
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 #include <tuple>
 using namespace std;
 
 #define MAX_N 10000
 
-vector<int> a[MAX_N + 1];
-queue<int> q;
-int degree[MAX_N + 1];
-int dp[MAX_N + 1];
-int work[MAX_N + 1];
 int n;
+vector<int> graph[MAX_N + 1];
+int degree[MAX_N + 1];
+int hour[MAX_N + 1];
+int dp[MAX_N + 1];
+queue<int> q;
 
 int main() {
-    // Please write your code here.
     cin >> n;
-
     for(int i = 1; i <= n; ++i) {
-        int time, many;
-        cin >> time >> many;
-        work[i] = time;
-        for(int j = 0; j < many; ++j) {
-            int e;
-            cin >> e;
+        int num;
+        cin >> hour[i] >> num;
 
-            a[e].push_back(i);
-
+        for(int j = 0; j < num; ++j) {
+            int pre;
+            cin >> pre;
+            graph[pre].push_back(i);
             degree[i]++;
-        }
+        }        
     }
-
-    // for(int i = 1; i <= n; ++i) {
-    //     cout << degree[i] << " ";
-    // }
 
     for(int i = 1; i <= n; ++i) {
-        if(degree[i] == 0) {
+        if(!degree[i]) {
             q.push(i);
-            dp[i] = work[i];
         }
     }
-
 
     while(!q.empty()) {
         int idx = q.front();
         q.pop();
 
-        for(int i = 0; i < a[idx].size(); ++i) {
-            int cur = a[idx][i];
+        dp[idx] += hour[idx];
 
-            degree[cur]--;
-            dp[cur] = max(dp[cur], dp[idx] + work[cur]);
-            if(degree[cur] == 0) {
-                q.push(cur);
+        for(int i = 0; i < graph[idx].size(); ++i) {
+            int t = graph[idx][i];
+
+            dp[t] = max(dp[idx], dp[t]);
+
+            degree[t]--;
+
+            if(!degree[t]) {
+                q.push(t);
             }
         }
     }
 
-    int answer = 0;
+    int ans = 0;
     for(int i = 1; i <= n; ++i) {
-        answer = max(dp[i], answer);
+        ans = max(ans, dp[i]);
     }
-    cout << answer;
-
-    // for(int i = 1; i <= n; ++i) {
-    //     cout << dp[i] << " ";
-    // }
-
-    return 0;
+    cout << ans << endl;
 }
