@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 #define MAX_N 50000
@@ -7,9 +7,9 @@ using namespace std;
 
 int n;
 vector<int> graph[MAX_N + 1];
-bool visited[MAX_N + 1];
+int parent[MAX_H][MAX_N + 1];
 int depth[MAX_N + 1];
-int parent[MAX_H + 1][MAX_N + 1];
+bool visited[MAX_N + 1];
 
 void DFS(int idx) {
     for(int i = 0; i < graph[idx].size(); ++i) {
@@ -17,8 +17,8 @@ void DFS(int idx) {
 
         if(!visited[t]) {
             visited[t] = true;
-            depth[t] = depth[idx] + 1;
             parent[0][t] = idx;
+            depth[t] = depth[idx] + 1;
             DFS(t);
         }
     }
@@ -54,11 +54,7 @@ int main() {
         graph[e].push_back(s);
     }
 
-    int q;
-    cin >> q;
-
     visited[1] = true;
-    depth[1] = 1;
     DFS(1);
 
     for(int h = 1; h <= MAX_H; ++h) {
@@ -66,6 +62,9 @@ int main() {
             parent[h][i] = parent[h - 1][parent[h - 1][i]];
         }
     }
+
+    int q;
+    cin >> q;
 
     for(int i = 0; i < q; ++i) {
         int a, b;
